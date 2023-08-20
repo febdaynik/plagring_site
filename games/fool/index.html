@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>WebRTC Многопользовательская игра</title>
+    <script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+    <script src="js/multiplayer.js"></script>
+	<style>
+		.left{
+			float: left;
+			width: 55%;
+			background-color: #f0f3;
+			padding: 10px;
+			margin: 10px;
+		}
+		.right{
+			float: right;
+			width: 55%;
+			background-color: #0ff3;
+			padding: 10px;
+			margin: 10px;
+		}
+		.chat{
+			width: 48%;
+			background-color: #e5e5e5;
+			height: 400px;
+			overflow: auto;
+			padding: 10px 0;
+		}
+		.username{
+			font-size: 14px;
+		}
+	</style>
+
+</head>
+<body>
+<!--  <canvas id="gameCanvas" width="800" height="600"></canvas>-->
+	<script type="text/javascript">
+		const copy_button = (el) => {
+			var peer_id = document.getElementById('peer-id');
+			var range = document.createRange();
+  			range.selectNode(peer_id);
+			window.getSelection().addRange(range);
+			document.execCommand("copy");
+			window.getSelection().removeAllRanges();
+		}
+	</script>
+
+	<div id="connector-peer-id">
+		<div id="peer-id">Ваш ид</div>
+		<input type="submit" value="copy" onclick="copy_button(this)"/>
+	</div>
+
+	<div id="main">
+		<div id="status"></div>
+		<input id="partnerPeer"/>
+		<input type="submit" onclick="connect()" placeholder="Peer ID"/>
+	</div>
+
+
+	<div id="messages" class="chat">
+		<div class="right">
+<!--			<div class="username">Peer_id: 3424234</div>-->
+			<div class="user_text">Моё сообщение</div>
+		</div>
+		<div class="left">
+			<div class="username">Peer_id: 3424234</div>
+			<div class="user_text">Сообщение собеседника</div>
+		</div>
+	</div>
+	<textarea id="inputmess" rows="4"></textarea>
+	<input type="submit" onclick="sendMessage()" placeholder="Введите сообщение..."/>
+
+</body>
+</html>

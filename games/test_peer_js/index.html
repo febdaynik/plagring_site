@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi-Peer Chat with PeerJS</title>
+</head>
+<body>
+  <h1>Multi-Peer Chat</h1>
+  <div id="chatBox">
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type your message...">
+    <button id="sendButton">Send</button>
+  </div>
+
+  <input type="text" id="hostIdInput" placeholder="Host's Peer ID">
+	<button id="connectButton">Connect to Host</button>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.3.2/dist/peerjs.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
